@@ -1,0 +1,93 @@
+<div class="container">
+    <app-alert></app-alert>
+</div>
+@if (isLoading) {
+    <div class="d-flex justify-content-center align-items-center" style="height: 74vh;">
+        <div class="loader"></div>
+    </div>
+}@else {
+    <div class="container mb-5 mt-5">
+        <div class="card shadow">
+            <!-- Card Header -->
+            <div class="card-header bg-primary text-white text-center">
+                <h4>Student Registration Form</h4>
+            </div>
+            <!-- Card Body -->
+            <div class="card-body">
+                <form #formData="ngForm" (ngSubmit)="onRegister(formData)" id="studentRegistrationForm">
+                    <div class="row">
+                        <!-- Left Column -->
+                        <div class="col-md-6 col-12">
+                            <div class="mb-3">
+                                <label for="studentId" class="form-label">Student ID</label>
+                                <input type="text" [(ngModel)]="studentRegister.id" class="form-control" id="studentId" name="id"
+                                    placeholder="Enter student ID" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="studentName" class="form-label">Name</label>
+                                <input type="text" [(ngModel)]="studentRegister.studentName" class="form-control" id="studentName" name="studentName"
+                                    placeholder="Enter student name" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="fatherName" class="form-label">Father's Name</label>
+                                <input type="text" [(ngModel)]="studentRegister.fatherName" class="form-control" id="fatherName" name="fatherName"
+                                    placeholder="Enter father's name" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="class" class="form-label">Class</label>
+                                <select [(ngModel)]="studentRegister.class" class="form-select" id="class" name="class" required>
+                                    <option value="" selected disabled>Select class</option>
+                                    <option value="1">Class 1</option>
+                                    <option value="2">Class 2</option>
+                                    <option value="3">Class 3</option>
+                                    <option value="4">Class 4</option>
+                                    <option value="5">Class 5</option>
+                                    <option value="6">Class 6</option>
+                                    <option value="7">Class 7</option>
+                                    <option value="8">Class 8</option>
+                                    <option value="9">Class 9</option>
+                                    <option value="10">Class 10</option>
+                                </select>
+                            </div>
+                        </div>
+                        <!-- Right Column -->
+                        <div class="col-md-6 col-12">
+                            <div class="mb-3">
+                                <label for="motherName" class="form-label">Mother's Name</label>
+                                <input [(ngModel)]="studentRegister.motherName" type="text" class="form-control" id="motherName" name="motherName"
+                                    placeholder="Enter mother's name" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="address" class="form-label">Address</label>
+                                <textarea [(ngModel)]="studentRegister.address" class="form-control" id="address" name="address"
+                                    placeholder="Enter address" rows="1" required></textarea>
+                            </div>
+                            <div class="mb-3">
+                                <label for="phone" class="form-label">Phone</label>
+                                <input type="tel" [(ngModel)]="studentRegister.phone" class="form-control" id="phone" name="phone"
+                                    placeholder="Enter phone number" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="class" class="form-label">Academic Year</label>
+                                <select placeholder="" [(ngModel)]="studentRegister.year" class="form-select" id="year" name="year" required>
+                                    <option selected disabled value="">Select year</option>
+                                    <option value="2024-2025">2024-25</option>
+                                    <option value="2023-2024">2023-24</option>
+                                    <option value="2022-2023">2022-23</option>
+                                    <option value="2021-2022">2021-22</option>
+                                    <option value="2020-2021">2020-21</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Buttons -->
+                    <div class="text-center mt-4">
+                        <button type="submit" [disabled]="formData.invalid" class="btn btn-success px-4 mx-3">Register</button>
+                        <button type="reset" (click)="onReset()" class="btn btn-secondary px-4">Reset</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+}

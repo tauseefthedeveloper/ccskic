@@ -1,0 +1,67 @@
+/* You can add global styles to this file, and also import other style files */
+
+
+@media print {
+   *{
+    visibility:hidden;
+   }
+
+    .student-table *{
+        visibility: visible;
+    }
+   .student-table *{
+        visibility: visible;
+    }
+    .report-card *{
+        visibility: visible;
+    }
+
+    .studentTable .table-dark tr th {
+        color: black;
+        font-weight: 600;
+    }
+    .table-light tr th {
+        color: black;
+        font-weight: 600;
+    }
+    #studentTable td {
+        border: 1px solid #000;
+        padding: 8px;
+    }
+    .student-table h5{
+        display: none;
+    }
+  
+/* 
+    .studentTable,
+    .studentTable * {
+        visibility: visible;
+    }
+
+    #studentTable {
+        width: 100%;
+        font-family: Arial, sans-serif;
+        font-size: 12px;
+        border-collapse: collapse;
+    }
+
+    #studentTable th,
+    #studentTable td {
+        border: 1px solid #000;
+        padding: 8px;
+        text-align: left;
+    }
+
+    /* @page {
+        margin:10px;
+    } */
+
+    /* .studentTable button {
+        display: none;
+    }
+    .studentTable .table-dark tr th {
+        color: black;
+        font-weight: 600;
+    } */
+
+}

@@ -1,0 +1,81 @@
+<div class="container">
+    <app-alert></app-alert>
+</div>
+<!-- <app-loader></app-loader> -->
+ @if (isLoading) {
+    <div class="d-flex justify-content-center align-items-center" style="height: 74vh;">
+        <div class="loader"></div>
+    </div>
+ }@else {
+    
+<div class="hero text-center">
+    <div class="image">
+        <!-- <img src="dash-bg.jpg" style="width: 100%; border-radius:10px ;" alt=""> -->
+    </div>
+    <h1 class="display-5 text-animated">
+        Welcome to the C.C.S.K.I. College
+    </h1>
+    <p class="lead text-white">
+        Chaudhary Charan Singh Kanya Inter College, Baytal Quadirabad, Siddharth Nagar, Uttar Pradesh 272195
+    </p>
+</div>
+<div class="container mb-5">
+    <div class="container-fluid">        
+        <!-- Admin Dashboard -->
+        <div class="container mt-5">
+            <h2 class="text-center mb-4">Admin Dashboard</h2>
+            <div class="row g-4">
+                <!-- Register Student Card -->
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <div class="card shadow text-center h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Register Student</h5>
+                            <p class="card-text">Add new students to the system and manage their details.</p>
+                            <a routerLink="/layout/register" class="btn btn-primary w-100">Go to Register</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Manage Students Card -->
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <div class="card shadow text-center h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Manage Students</h5>
+                            <p class="card-text">View, edit, or delete student records in the system.</p>
+                            <a routerLink="/layout/update" class="btn btn-primary w-100">Go to Management</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <div class="card shadow text-center h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Students List</h5>
+                            <p class="card-text">Check list of student based on year & class, Print student list</p>
+                            <a routerLink="/layout/student-list" class="btn btn-primary w-100">Go to Student List</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Reports Card -->
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <div class="card shadow text-center h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Reports</h5>
+                            <p class="card-text">Generate and view reports for student performance and attendance.</p>
+                            <a routerLink="/layout/reportCard" class="btn btn-primary w-100">View Reports</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <div class="card shadow text-center h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Staff's</h5>
+                            <p class="card-text">Manage Teacher and other staff details for your organization.</p>
+                            <a routerLink="/layout/staff" class="btn btn-primary w-100">Staff's</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+ }

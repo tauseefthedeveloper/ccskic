@@ -1,0 +1,61 @@
+<div class="container">
+    <app-alert></app-alert>
+</div>
+
+<div class="container login-container">
+    <div class="row justify-content-center">
+        <div class="col-md-6 col-lg-6 col-sm-8 col-10">
+            <div class="card login-card p-4">
+                <div class="text-center mb-4">
+                    <h2 class="login-header">
+                        <div class="container">
+                            <div class="d-flex justify-content-center align-items-center flex-column flex-sm-row">
+                                <!-- Logo -->
+                                <img src="ccski.png" alt="Logo" class="img-fluid"
+                                    style="max-width: 100px; margin-right: 20px;">
+
+                                <!-- Heading -->
+                                <span style="font-size: 38px;" class="text-center text-sm-start">
+                                    C.C.S.K.I. College
+                                    <br>
+                                    <span style="font-size: 12px; display: block;">Baytal, Quadirabad, Siddharth Nagar,
+                                        UP</span>
+                                </span>
+                            </div>
+                        </div>
+                    </h2>
+                </div>
+                <form #loginForm="ngForm" (ngSubmit)="onLogin(loginForm)" novalidate>
+                    <div class="mb-3">
+                        <div class="input-group flex-nowrap">
+                            <span class="input-group-text" id="addon-wrapping">&#64;</span>
+                            <input type="text" name="username" class="form-control" ngModel required #username="ngModel"
+                                [(ngModel)]="adminLocal.username" placeholder="Username" aria-label="Username"
+                                aria-describedby="addon-wrapping">
+                        </div>
+                        <div *ngIf="username.invalid && username.touched" class="text-danger">
+                            Username is required
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <div class="input-group flex-nowrap">
+                            <span class="input-group-text" id="addon-wrapping"><i class="fa-solid fa-lock"></i></span>
+                            <input [type]="passwordFieldType" class="form-control" name="password" ngModel required
+                                [(ngModel)]="adminLocal.password" name="password" #password="ngModel"
+                                placeholder="Password" aria-label="Username" aria-describedby="addon-wrapping">
+                            <span class="input-group-text" id="addon-wrapping"><i (click)="togglePasswordVisibility()"
+                                    [class]="passwordFieldType === 'text' ? 'fa fa-eye' : 'fa fa-eye-slash'"></i></span>
+                        </div>
+                        <div *ngIf="password.invalid && password.touched" class="text-danger">
+                            Password is required
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary w-100" [disabled]="loginForm.invalid">
+                        Login
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

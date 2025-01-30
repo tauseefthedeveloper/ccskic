@@ -1,0 +1,51 @@
+.alert-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+  }
+  
+  .alert-box {
+    padding: 15px 20px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.3s ease-out;
+  }
+  
+  .alert-box.success {
+    background-color: #d4edda;
+    color: #155724;
+  }
+  
+  .alert-box.error {
+    background-color: #f8d7da;
+    color: #721c24;
+  }
+  
+  .alert-box.warning {
+    background-color: #fff3cd;
+    color: #856404;
+  }
+  
+  button {
+    background: none;
+    border: none;
+    color: inherit;
+    font-size: 18px;
+    cursor: pointer;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  

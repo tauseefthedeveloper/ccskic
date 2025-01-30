@@ -1,0 +1,30 @@
+@if (isLoading) {
+    <div class="d-flex justify-content-center align-items-center" style="height: 100%;">
+        <div class="loader"></div>
+    </div>
+}@else {
+    <div class="container">
+        <h1>Teacher Information</h1>
+        <div class="teacher-grid">
+            @for (item of teacherList; track $index) {
+            <div class="teacher-card">
+                <div class="teacher-image">
+                    <img src="image (1).jpg" alt="teacher-photo">
+                    <div style="margin-top: 20px;">
+                        <p><strong>Qualification:</strong> {{item.Qualification}}</p>
+                        <p><strong>Academic Year:</strong> {{item.year}}</p>
+                    </div>
+                </div>
+                <div class="teacher-info">
+                    <h2><span style="color: #4a4a4a;">Name:</span> {{item.name}}</h2>
+                    <p><strong>Teacher ID:</strong> {{item.teacherid}}</p>
+                    <p><strong>Father's Name:</strong> {{item.fatherName}}</p>
+                    <p><strong>Mother's Name:</strong> {{item.motherName}}</p>
+                    <p><strong>Address:</strong> {{item.address}}</p>
+                    <p><strong>Contact:</strong> {{item.phone}}</p>
+                </div>
+            </div>
+            }
+        </div>
+    </div>
+}

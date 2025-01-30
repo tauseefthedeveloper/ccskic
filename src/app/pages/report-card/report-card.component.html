@@ -1,0 +1,147 @@
+@if (isLoading) {
+    <div class="d-flex justify-content-center align-items-center" style="height: 74vh;">
+        <div class="loader"></div>
+    </div>
+}@else {
+    <div class="container report-card mt-2">
+        <!-- Header Section -->
+        <div class="row align-items-center mb-4">
+            <div class="col-2 text-center">
+                <img src="ccski.png" alt="College Logo" class="logo">
+            </div>
+            <div class="col-8">
+                <div class="header-section">
+                    <h4>Chaudhary Charan Singh Kanya Inter College</h4>
+                    <p>Baytal, Quadirabad, Siddharth Nagar, Uttar Pradesh UP 272195</p>
+                    <div class="d-flex justify-content-between mb-0">
+                        <p><strong>Academic Year:</strong> <input class="input-type" type="text"></p>
+                        <p><strong>Student ID:</strong> <input class="input-type" type="text"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Student Details -->
+        <div class="details text-center">
+            <div class="row">
+                <div class="col-6">
+                    <p><strong>Student Name:</strong> <input class="input-type" type="text"></p>
+                </div>
+                <div class="col-6">
+                    <p><strong>Roll Number:</strong> <input class="input-type" type="text"></p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <p><strong>Father's Name:</strong> <input class="input-type" type="text"></p>
+                </div>
+                <div class="col-6">
+                    <p><strong>Mother's Name:</strong> <input class="input-type" type="text"></p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <p><strong>Class:</strong> <input class="input-type" type="text"></p>
+                </div>
+                <div class="col-6">
+                    <p><strong>Address:</strong> <input style="width: 480px;" class="input-type" type="text"></p>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Academic Performance -->
+        <div class="grades">
+            <h5 class="text-center">Academic Performance</h5>
+            <table class="table table-bordered subject-table">
+                <thead class="table-light">
+                    <tr>
+                        <th>Subject</th>
+                        <th>Marks Obtained</th>
+                        <th>Maximum Marks</th>
+                        <th>Grade</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Hindi</td>
+                        <td><input [(ngModel)]="Hindi" class="input-type" type="text"></td>
+                        <td>100</td>
+                        <td><input [(ngModel)]="HindiGrade" class="input-type" type="text"></td>
+                    </tr>
+                    <tr>
+                        <td>English</td>
+                        <td><input [(ngModel)]="English" class="input-type" type="text"></td>
+                        <td>100</td>
+                        <td><input [(ngModel)]="EnglishGrade" class="input-type" type="text"></td>
+                    </tr>
+                    <tr>
+                        <td>Math</td>
+                        <td><input [(ngModel)]="Math" class="input-type" type="text"></td>
+                        <td>100</td>
+                        <td><input [(ngModel)]="MathGrade" class="input-type" type="text"></td>
+                    </tr>
+                    <tr>
+                        <td>Science</td>
+                        <td><input [(ngModel)]="Science" class="input-type" type="text"></td>
+                        <td>100</td>
+                        <td><input [(ngModel)]="ScienceGrade" class="input-type" type="text"></td>
+                    </tr>
+                    <tr>
+                        <td>Social Science</td>
+                        <td><input [(ngModel)]="SocialScience" class="input-type" type="text"></td>
+                        <td>100</td>
+                        <td><input [(ngModel)]="SocialScienceGrade" class="input-type" type="text"></td>
+                    </tr>
+                    <tr>
+                        <td>Urdu /Sanskrit /Home Science</td>
+                        <td><input [(ngModel)]="UrduSansHome" class="input-type" type="text"></td>
+                        <td>100</td>
+                        <td><input [(ngModel)]="UrduSansHomeGrade" class="input-type" type="text"></td>
+                    </tr>
+                    <tr>
+                        <td>Drawing</td>
+                        <td><input [(ngModel)]="Drawing" class="input-type" type="text"></td>
+                        <td>100</td>
+                        <td><input [(ngModel)]="DrawingGrade" class="input-type" type="text"></td>
+                    </tr>
+                    <tr>
+                        <th>Result: <span style="font-style: italic;">{{PassedOrFail}}</span></th>
+                        <th (click)="TotalNumber()" style="text-align: center;">
+                            <span style="color: white;">Total Marks:</span>
+                            <span style="
+                                display: inline-block;
+                                width: 70px;
+                                color: white;
+                                background-color: transparent;
+                                text-align: left;
+                              ">
+                                {{ Total }}
+                            </span>
+                        </th>
+                        <th>700 </th>
+                        <th>Percentage:{{Percentage | number:'1.2-2'}}</th>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    
+        <!-- Signatures Section -->
+        <div class="signatures">
+            <div class="row">
+                <div class="col-6 text-center">
+                    <p><strong>Class Teacher's Signature:</strong></p>
+                    <p>__________________________</p>
+                </div>
+                <div class="col-6 text-center">
+                    <p><strong>Principal's Signature:</strong></p>
+                    <p>__________________________</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container mb-3">
+        <div class="mt-4 text-center">
+            <a style="cursor: pointer;" id="downloadBtn" (click)="printData()" class="link">Print</a>
+        </div>
+    </div>
+}

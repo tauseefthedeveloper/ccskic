@@ -1,0 +1,93 @@
+@if (isLoading) {
+    <div class="d-flex justify-content-center align-items-center" style="height: 74vh;">
+        <div class="loader"></div>
+    </div>
+}@else {
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">View Students by Class</h1>
+    
+        <div class="card shadow">
+            <div class="card-body">
+                <!-- Class Selection -->
+                <div class="mb-4">
+                    <label for="classSelect" class="form-label">Select Class</label>
+                    <select [(ngModel)]="classValue" class="form-select" id="classSelect">
+                        <option selected value="1">Class 1</option>
+                        <option value="2">Class 2</option>
+                        <option value="3">Class 3</option>
+                        <option value="4">Class 4</option>
+                        <option value="5">Class 5</option>
+                        <option value="6">Class 6</option>
+                        <option value="7">Class 7</option>
+                        <option value="8">Class 8</option>
+                        <option value="9">Class 9</option>
+                        <option value="10">Class 10</option>
+                    </select>
+                </div>
+                <div class="mb-4">
+                    <label for="classYear" class="form-label">Select year</label>
+                    <select [(ngModel)]="classYear" class="form-select" id="classYear">
+                        <option selected value="2024-2025">2024-25</option>
+                        <option value="2023-2024">2023-24</option>
+                        <option value="2022-2023">2022-23</option>
+                        <option value="2021-2022">2021-22</option>
+                        <option value="2020-2021">2020-21</option>
+                    </select>
+                </div>
+    
+                <!-- Student Details -->
+                <div class="student-table">
+                    <h5 class="mb-3">
+                        Student Details for Class
+                        <span *ngIf="classValue">{{ classValue }}</span>
+                        <span *ngIf="!classValue">not selected.</span>
+                        <span> in the year {{classYear}}</span>
+                    </h5>
+                    <div class="table-responsive">
+                        <table class="table table-bordered studentTable" id="studentTable">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th>S.No</th>
+                                    <th>Student ID</th>
+                                    <th>Name</th>
+                                    <th>Father's Name</th>
+                                    <th>Mother's Name</th>
+                                    <th>M. Number</th>
+                                    <th>Year</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @for (item of filteredStudents(); track $index) {
+                                <tr>
+                                    @if (classYear==item.year) {
+                                    <td>{{$index+1}}</td>
+                                    <td>{{ item.id }}</td>
+                                    <td>{{ item.studentName }}</td>
+                                    <td>{{ item.fatherName }}</td>
+                                    <td>{{ item.motherName }}</td>
+                                    <td>{{ item.phone }}</td>
+                                    <td>{{ item.year }}</td>
+                                    }
+                                </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+    
+                <div *ngIf="filteredStudents().length === 0" class="text-center text-muted mt-3">
+                    <p>No students found for Class {{ classValue }} in the Academic year {{classYear}}</p>
+                </div>
+    
+                <div *ngIf="filteredStudents().length > 0" class="text-center mt-3">
+                    <p class="text-muted">
+                        <strong>{{ filteredStudents().length }}</strong> students found for Class {{ classValue }} in the Academic year {{classYear}}
+                    </p>
+                    <div class="mt-4">
+                        <a style="cursor: pointer;" id="downloadBtn" (click)="printData()" class="link">Print</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}

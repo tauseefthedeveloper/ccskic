@@ -1,0 +1,27 @@
+@if (isLoading) {
+    <div class="d-flex justify-content-center align-items-center" style="height: 74vh;">
+        <div class="loader"></div>
+    </div>
+}@else {
+    <div class="staff-container">
+        <div class="staff-sidebar">
+            <ul style="list-style: none; padding-left: 1rem;">
+                <li>
+                    <h4 style="margin-top: 10px; color:rgb(223, 221, 221);">Teacher's</h4>
+                    <div class="container">
+                        <ul style="list-style: none; padding-left: 1rem;">
+                            <li><a routerLink="/layout/staff/teacher-registration">> Register</a></li>
+                            <li><a routerLink="/layout/staff/teacher-updating">> Update</a></li>
+                            <li><a routerLink="/layout/staff/teacher-delete">> Delete</a></li>
+                            <li><a routerLink="/layout/staff/teacher-list">> List</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li><h4 style="margin-top: 10px; color:rgb(223, 221, 221);" href="">Other Staff's</h4></li>
+            </ul>
+        </div>
+        <div class="routesLink">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+}

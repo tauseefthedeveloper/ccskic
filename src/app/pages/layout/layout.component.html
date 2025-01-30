@@ -1,0 +1,73 @@
+<div class="container">
+    <app-alert></app-alert>
+</div>
+@if (isLoading) {
+    <div class="d-flex justify-content-center align-items-center" style="height: 74vh;">
+        <div class="loader"></div>
+    </div>
+}@else {
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" routerLink="/layout/home">
+                <div class="d-flex justify-content-center align-items-center flex-row flex-sm-row">
+                    <img src="ccski.png" alt="Logo" class="img-fluid" style="max-width: 60px; margin-right: 10px;">
+                    <span style="font-size: 22px; font-weight: 600; text-align: center; margin: 0; padding: 0;">
+                        C.C.S.K.I.
+                        <br>
+                        <span style="font-size: 12px; display: block; text-align: center;">College</span>
+                    </span>
+                </div>
+            </a>
+    
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="mynavbar">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/layout/register">Register</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/layout/update">Update</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/layout/student-list">Student List</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/layout/reportCard">Report Card</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/layout/id-gen-com">ID Card's
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/layout/staff">Staff's
+                        </a>
+                    </li>
+                    <li class="nav-item d-flex align-items-center">
+                        <!-- Logout Button -->
+                        <span *ngIf="adminLogged" class="nav-link" style="font-size: 18px; cursor: pointer;"
+                            (click)="onLogout()">
+                            <i style="color: red;" class="fa-solid fa-right-from-bracket"></i> Logout
+                        </span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <div style="width: 100%; height: 100%;">
+        <router-outlet></router-outlet>
+    </div>
+    
+    <!-- Footer Section -->
+    <div class="bg-dark rounded">
+        <footer class=" bg-light text-center py-3 bg-dark text-white">
+            <p class="mb-0">© 2024 Chaudhary Charan Singh Kanya Inter College | Siddharth Nagar, Uttar Pradesh 272195</p>
+            <p class="mb-0"><a target="_blank" class="DeveloperId" href="https://github.com/tauseefthedeveloper">Tauseef
+                    Khan</a></p>
+        </footer>
+    </div>
+}

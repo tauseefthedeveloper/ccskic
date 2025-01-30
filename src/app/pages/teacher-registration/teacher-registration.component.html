@@ -1,0 +1,83 @@
+<app-alert></app-alert>
+@if (isLoading) {
+<div class="d-flex justify-content-center align-items-center" style="height: 100%;">
+    <div class="loader"></div>
+</div>
+}@else {
+<div class="container">
+    <div class="card shadow">
+        <!-- Card Header -->
+        <div class="card-header bg-primary text-white text-center">
+            <h4>Teacher Registration Form</h4>
+        </div>
+        <!-- Card Body -->
+        <div class="card-body">
+            <form #teacherForm="ngForm" (ngSubmit)="onTeacherRegister(teacherForm)" id="studentRegistrationForm">
+                <div class="row">
+                    <!-- Left Column -->
+                    <div class="col-md-6 col-12">
+                        <div class="mb-3">
+                            <label for="studentId" class="form-label">Teacher ID</label>
+                            <input type="text" [(ngModel)]="TeacherDetails.teacherid" class="form-control"
+                                id="studentId" name="id" placeholder="Enter student ID" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="studentName" class="form-label">Name</label>
+                            <input type="text" [(ngModel)]="TeacherDetails.name" class="form-control" id="studentName"
+                                name="studentName" placeholder="Enter student name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="fatherName" class="form-label">Father's Name</label>
+                            <input type="text" [(ngModel)]="TeacherDetails.fatherName" class="form-control"
+                                id="fatherName" name="fatherName" placeholder="Enter father's name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="qualification" class="form-label">Qualification</label>
+                            <input type="text" [(ngModel)]="TeacherDetails.Qualification" class="form-control"
+                                id="qualification" name="qualification" placeholder="Enter qualification details"
+                                required>
+                        </div>
+                    </div>
+                    <!-- Right Column -->
+                    <div class="col-md-6 col-12">
+                        <div class="mb-3">
+                            <label for="motherName" class="form-label">Mother's Name</label>
+                            <input type="text" [(ngModel)]="TeacherDetails.motherName" class="form-control"
+                                id="motherName" name="motherName" placeholder="Enter mother's name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="address" class="form-label">Address</label>
+                            <textarea [(ngModel)]="TeacherDetails.address" class="form-control" id="address"
+                                name="address" placeholder="Enter address" rows="1" required></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="phone" class="form-label">Phone</label>
+                            <input type="tel" [(ngModel)]="TeacherDetails.phone" class="form-control" id="phone"
+                                name="phone" placeholder="Enter phone number" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="class" class="form-label">Academic Year</label>
+                            <select placeholder="" [(ngModel)]="TeacherDetails.AcedamicYear" class="form-select"
+                                id="year" name="year" required>
+                                <option selected disabled value="">Select year</option>
+                                <option value="2024-2025">2024-25</option>
+                                <option value="2023-2024">2023-24</option>
+                                <option value="2022-2023">2022-23</option>
+                                <option value="2021-2022">2021-22</option>
+                                <option value="2020-2021">2020-21</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <!-- Buttons -->
+                <div class="text-center mt-4">
+                    <button type="submit" [disabled]="teacherForm.invalid"
+                        class="btn btn-success px-4 mx-3">Register</button>
+                    <button type="reset" (click)="onReset()" class="btn btn-secondary px-4">Reset</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+}
